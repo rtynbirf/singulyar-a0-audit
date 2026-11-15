@@ -1,0 +1,27 @@
+passed: True
+verdict: Восемь способностей статья 79 rc7: каждая имеет точку принуждения в v4.1; снятие точки → потеря M(x); восстановление → возврат. 8/8 PASS.
+
+  C1 Познание: stub→fail=True restore→ok=True [ok]
+      M(C1): ATTEST не может сверить delta_matches_intent; V3 недостижим
+      detail: ATTEST='NOT_VERIFIED (V2)' committed=False
+  C2 Открытие: stub→fail=True restore→ok=True [ok]
+      M(C2): PROPOSE NO_POSSIBILITY; переход нельзя подать
+      detail: rep=None (KernelRefusal expected on PROPOSE)
+  C3 Назначение: stub→fail=True restore→ok=True [ok]
+      M(C3): ADMIT DENIED; вид перехода не определён
+      detail: ADMIT=''
+  C4 Созидание: stub→fail=True restore→ok=True [ok]
+      M(C4): GENERATE reject; новый тип не порождён
+      detail: p1c4 in possibilities=False
+  C5 Организация: stub→fail=True restore→ok=True [ok]
+      M(C5): formation_rules пусты; структурная связность потеряна
+      detail: rules_before=1 rules_after=0
+  C6 Наделение полномочиями: stub→fail=True restore→ok=True [ok]
+      M(C6): AUTHORITY NO_AUTHORITY; переход не авторизован
+      detail: AUTHORIZE='' committed=False
+  C7 Исполнение и контроль: stub→fail=True restore→ok=True [ok]
+      M(C7): EXECUTE no-op; ATTEST NOT_VERIFIED; V3 недостижим
+      detail: ATTEST='NOT_VERIFIED (V2)' committed=False
+  C8 Сохранение и преобразование: stub→fail=True restore→ok=True [ok]
+      M(C8): ACTIVATE DENIED_CONFLICT; переход не введён в действие
+      detail: ACTIVATE='DENIED_CONFLICT' committed=False
