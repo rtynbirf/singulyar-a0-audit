@@ -1,0 +1,7 @@
+passed: True
+
+  X-020.1 OWN_STATE(на себя): ADMIT='ADMITTED' committed=True [ok]
+  X-020.2 OWN_STATE(на hB): refusal_code='DENIED_APPROPRIATION' [ok] — переназначение за пределы поля отклонено
+  X-020.3 INVALID_KIND: refusal_code='DENIED_APPROPRIATION' [ok] — вид вне поля отклонён
+  X-020.4 SHARED_PROTOCOL(без procedure): refusal_code='DENIED_NO_PROCEDURE' [ok] — протокол без процедуры отклонён
+  X-020.5 SEIZE_OTHER_RESOURCES(без мандата): refusal_code='DENIED_APPROPRIATION' [ok] — захват без мандата отклонён
