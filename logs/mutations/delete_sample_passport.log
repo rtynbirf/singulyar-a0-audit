@@ -1,0 +1,6 @@
+expected: [FILE_MISSING]
+exit: 1
+--- output ---
+[FILE_MISSING] PASSPORT: SAMPLE_PASSPORT.json
+
+

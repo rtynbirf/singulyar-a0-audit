@@ -1,0 +1,20 @@
+test_all_python_files_compile (test_repair.RepairTests.test_all_python_files_compile) ... ok
+test_manifest_accepts_exact_tree_and_detects_unlisted (test_repair.RepairTests.test_manifest_accepts_exact_tree_and_detects_unlisted) ... [INTEGRITY_OK] 1 files verified
+[MANIFEST_OMITS_FILES] ['b.txt']
+ok
+test_manifest_ignores_pycache (test_repair.RepairTests.test_manifest_ignores_pycache) ... [INTEGRITY_OK] 1 files verified
+ok
+test_manifest_rejects_duplicate_and_traversal (test_repair.RepairTests.test_manifest_rejects_duplicate_and_traversal) ... [MANIFEST_UNSAFE_PATH] '../escape'
+[FILE_MISSING] x
+[MANIFEST_DUPLICATE_PATH] x
+[MANIFEST_REFERENCES_UNKNOWN_FILES] ['x']
+ok
+test_manifest_rejects_listing_pycache (test_repair.RepairTests.test_manifest_rejects_listing_pycache) ... [MANIFEST_LISTS_EXCLUDED] __pycache__/x.pyc
+ok
+test_manifest_rejects_windows_drive_path (test_repair.RepairTests.test_manifest_rejects_windows_drive_path) ... ok
+test_negative_cases_import_without_nameerror (test_repair.RepairTests.test_negative_cases_import_without_nameerror) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.013s
+
+OK

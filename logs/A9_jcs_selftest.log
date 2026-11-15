@@ -1,0 +1,8 @@
+OK  b'{"a":1,"b":[1,2,3]}'
+OK   (no expected): b'{"n1":1,"n2":1,"n3":1,"n4":3.14,"n5":10000000000,"n6":11000000000}'
+OK  b'{"k":"a\\bb\\tc\\nd\\fe\\rf\\"g\\\\h"}'
+OK  b'{"k":"\\u0000\\u0001\\u001f"}'
+OK   (no expected): b'{"k":"\xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82, \xd0\xbc\xd0\xb8\xd1\x80! \xce\xa3"}'
+OK  b'{"z":[1,"two",{"x":null,"y":false}]}'
+OK  b'{"f":false,"n":null,"t":true}'
+[JCS_SELFTEST] 7/7

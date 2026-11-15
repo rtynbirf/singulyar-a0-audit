@@ -1,0 +1,6 @@
+expected: [MANIFEST_LISTS_EXCLUDED]
+exit: 1
+--- output ---
+[MANIFEST_LISTS_EXCLUDED] __pycache__/x.pyc
+
+

@@ -1,0 +1,16 @@
+=== Auditor environment ===
+Date: 2026-11-15T16:52:52Z
+OS: Linux 5.10.134-013.15.kangaroo.al8.x86_64 x86_64
+Distro: PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+Python: Python 3.12.16
+pip: pip 26.3 from /home/z/my-project/scripts/audit_a0/venv/lib/python3.12/site-packages/pip (python 3.12)
+venv path: /home/z/my-project/scripts/audit_a0/venv
+
+=== Installed package versions (audit venv) ===
+attrs                     26.1.0
+jsonschema                4.26.0
+jsonschema-specifications 2025.9.1
+referencing               0.37.0
+rfc3339-validator         0.1.4
+rfc3986-validator         0.1.1
+rfc8785                   0.1.4

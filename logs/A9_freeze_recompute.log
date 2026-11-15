@@ -1,0 +1,10 @@
+stored freeze_sha256      = 6c4b312479cd49f04c93324d8eec06afd11e15dfff64903ccbb819ff22147924
+auditor JCS hash          = 6c4b312479cd49f04c93324d8eec06afd11e15dfff64903ccbb819ff22147924
+rfc8785 library hash      = 6c4b312479cd49f04c93324d8eec06afd11e15dfff64903ccbb819ff22147924
+auditor_bytes_len         = 14981
+library_bytes_len         = 14981
+auditor==library_bytes    = True
+auditor==stored           = True
+library==stored           = True
+[AUDITOR_JCS_MATCHES_LIBRARY] bytes identical
+[AUDITOR_FREEZE_OK] recomputed hash matches stored value

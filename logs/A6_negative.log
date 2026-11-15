@@ -1,0 +1,12 @@
+[PASS] latency expected=[LATENCY_SUBSET_MISMATCH] exit=1
+[PASS] duplicate_task expected=[DUPLICATE_TASK_ID] exit=1
+[PASS] duplicate_reference expected=[DUPLICATE_REFERENCE_ID] exit=1
+[PASS] missing_reference expected=[TASK_REF_MISSING] exit=1
+[PASS] empty_rubric expected=[RUBRIC_EMPTY] exit=1
+[PASS] same_rubrics expected=[RUBRIC_FAILED_EQ_INCOMPLETE] exit=1
+[PASS] bad_version expected=[VERSION_MISMATCH] exit=1
+[PASS] bad_total expected=[EFFECTIVE_TOTAL_MISMATCH] exit=1
+[PASS] missing_hash expected=[HASH_MISSING] exit=1
+[PASS] bad_hash_format expected=[HASH_FORMAT] exit=1
+[PASS] bad_hash expected=[HASH_MISMATCH] exit=1
+[NEGATIVE_TESTS] 11/11

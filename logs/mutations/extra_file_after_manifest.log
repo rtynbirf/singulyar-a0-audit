@@ -1,0 +1,6 @@
+expected: [MANIFEST_OMITS_FILES]
+exit: 1
+--- output ---
+[MANIFEST_OMITS_FILES] ['auditor_injected.txt']
+
+

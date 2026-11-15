@@ -1,0 +1,6 @@
+expected: [HASH_MISMATCH]
+exit: 1
+--- output ---
+[HASH_MISMATCH] A0_PROTOCOL_ADDENDUM.md
+
+

@@ -1,0 +1,6 @@
+expected: [PACKAGE_SYMLINK]
+exit: 1
+--- output ---
+[PACKAGE_SYMLINK] evil_link.py
+
+

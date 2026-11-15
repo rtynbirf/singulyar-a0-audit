@@ -1,0 +1,9 @@
+[PASS] rubric_text_no_rehash expected=[HASH_MISMATCH] exit=1
+[PASS] delete_sample_passport expected=[FILE_MISSING] exit=1
+[PASS] plant_symlink expected=[PACKAGE_SYMLINK] exit=1
+[PASS] extra_file_after_manifest expected=[MANIFEST_OMITS_FILES] exit=1
+[PASS] corrupt_datetime_sample expected=[SCHEMA_VIOLATION] exit=1
+[PASS] zero_freeze_hash expected=[HASH_MISMATCH] exit=1
+[PASS] manifest_corrupt_hash expected=[HASH_MISMATCH] exit=1
+[PASS] manifest_lists_pycache expected=[MANIFEST_LISTS_EXCLUDED] exit=1
+[AUDITOR_MUTATIONS] 8/8

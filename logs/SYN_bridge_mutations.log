@@ -1,0 +1,16 @@
+=== Bridge mutation tests (auditor's own, not in H-020) ===
+
+[PASS] BM-A observer==executor → SelfAttestationRefused  ATTEST='REFUSED: H-008: проверяющий повторяет рассуждение на тех же данных (одна модель, одни веса, один источник свидетельств) — это не независимая аттестация.' committed=False
+[PASS] BM-B failed ATTEST → export UNKNOWN  result_status='UNKNOWN'
+[PASS] BM-C failed-admission export schema-valid  0 errors
+[PASS] BM-D gate_suite structure + inspect_package 5 facts all True  suite.size=3 crit.props=6 facts={'a0_integrity_ok': True, 'a0_validator_ok': True, 'a0_negative_tests_ok': True, 'a0_freeze_not_placeholder': True, 'a0_package_digest_matches': True}
+[PASS] BM-E I2/I2/PARTIAL → V2 (not V3)  level=2
+[PASS] BM-F UNKNOWN reviewer → V1  level=1
+[PASS] BM-G I3/I3/I4 → V3 (positive path)  level=3
+[PASS] BM-H empty claims → empty verdicts  verdicts={}
+[PASS] BM-I NOT_APPLICABLE → UNKNOWN, CONFIRMED → PASS, REFUTED → FAIL  verdicts={'C1': 'UNKNOWN', 'C2': 'PASS', 'C3': 'FAIL'}
+[PASS] BM-J HOST-V3 vs A0-ledger-V1 gap honestly disclosed  HOST_V3=True ledger_level=1 reviewer_I='I1' reference_I='UNKNOWN' proc='PARTIAL'
+[PASS] BM-K missing manifest → NO_MANIFEST  allowed=(False, 'NO_MANIFEST')
+[PASS] BM-L inspect_package leaves no __pycache__  before={'tests/self/__pycache__', '__pycache__'} after={'tests/self/__pycache__', '__pycache__'}
+
+[AUDITOR_BRIDGE_MUTATIONS] 12/12

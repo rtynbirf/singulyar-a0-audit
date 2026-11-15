@@ -1,0 +1,8 @@
+[PASS] A0: INTEGRITY_CHECK (пакет A0 не изменён)
+[PASS] A0: самотесты 7/7
+[PASS] A0: VALIDATOR
+[PASS] A0: негативные тесты 11/11
+[PASS] HOST: selftest (демо + 14 экспериментов)
+[PASS] HOST: pytest
+[PASS] SYNTHESIS_MANIFEST (109 files)
+ИТОГО: ВСЁ PASS

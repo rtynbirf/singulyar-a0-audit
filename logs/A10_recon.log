@@ -1,0 +1,27 @@
+=== A10 reconstruction: verify freezing procedure self-consistency ===
+
+Method:
+  v0.2.2-baseline (per CHANGELOG) = v0.2.5 TASK_SET.v0.2.2.json with freeze_sha256 = '0'*64 (placeholder)
+  Run VALIDATOR.py on baseline; expect [HASH_MISMATCH] actual=<hex>
+  Compare actual hash to stored freeze_sha256 in v0.2.5 package.
+
+Run:
+  $ python -B VALIDATOR.py recon/   (where recon/ has TASK_SET with freeze_sha256='0'*64)
+  [HASH_MISMATCH] actual=6c4b312479cd49f04c93324d8eec06afd11e15dfff64903ccbb819ff22147924
+  exit=1
+
+Comparison:
+  actual (from mismatch) = 6c4b312479cd49f04c93324d8eec06afd11e15dfff64903ccbb819ff22147924
+  stored freeze_sha256   = 6c4b312479cd49f04c93324d8eec06afd11e15dfff64903ccbb819ff22147924
+  match: YES
+
+Conclusion:
+  The v0.2.2-baseline (v0.2.5 data with placeholder) canonicalizes exactly to the stored
+  freeze_sha256 in v0.2.5. This is the cryptographic link v0.2.2 -> v0.2.5: the substituted
+  hash is the canonical hash of the data (modulo freeze_sha256). Freezing procedure applied
+  correctly; no difference between v0.2.2-baseline and v0.2.5 except freeze_sha256.
+
+  Combined with A5 (VALIDATOR_OK on v0.2.5), A6 (11/11 negative tests on v0.2.5 structure),
+  and A9 (independent JCS recompute matches stored), A10 = PASS.
+
+[A10_RECON_PASS]
