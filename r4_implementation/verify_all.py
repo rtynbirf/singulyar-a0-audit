@@ -39,7 +39,7 @@ def main():
         run("A0: самотесты 7/7", [py, "-B", "-m", "unittest", "discover", "-s", "tests/self"], A0, "OK"),
         run("A0: VALIDATOR", [py, "-B", "VALIDATOR.py", "."], A0, "[VALIDATOR_OK]"),
         run("A0: негативные тесты 11/11", [py, "-B", "run_negative_tests.py", "."], A0, "[NEGATIVE_TESTS] 11/11"),
-        run("HOST: selftest (демо + 16 экспериментов)", [py, "-B", "-m", "singulyar_host", "selftest"], ROOT, "ИТОГО: 16/16 PASS"),
+        run("HOST: selftest (демо + 17 экспериментов)", [py, "-B", "-m", "singulyar_host", "selftest"], ROOT, "ИТОГО: 17/17 PASS"),
         run("HOST: pytest", [py, "-B", "-m", "pytest", "tests", "-q", "-p", "no:cacheprovider"], ROOT, "passed"),
         synth_manifest_ok(),
     ]

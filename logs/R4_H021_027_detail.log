@@ -1,0 +1,30 @@
+passed: True
+
+  X-021 Стоимость делегирования: PARTIAL
+      rc7: прямая и полная стоимость самостоятельного и делегированного исполнения (ст.86)
+      v4.1: budget.py BudgetLedger: reserve/settle/begin_execution/release
+      detail: invariant=True SETTLE='SETTLED'; full ст.86 decomposition (C_исполнителя+C_координации+C_контроля+C_риска) needs R2 persistence
+  X-022 Конфликт полномочий: PARTIAL
+      rc7: несовместимые назначения, конкурирующие полномочия, отсутствие арбитра
+      v4.1: capability.py CapabilityStore (independent checks, no cross-cap conflict detection)
+      detail: cap-a check=True cap-b check=True; independent checks OK, cross-cap conflict detection = NOT IMPLEMENTED (needs R3)
+  X-023 Делегирование (глубина, отзыв): PASS
+      rc7: ограниченность, срок, передача, отзыв, сохранение ответственности
+      v4.1: capability.py: delegate(parent, child_id, child_scope, child_holder) with max_delegate_depth
+      detail: ttl_advance=True revoke_by_issuer=True check_after_revoke=False; delegation depth + revocation enforced
+  X-024 Захват управления: PASS
+      rc7: попытка отменить ограничения или присвоить волю человека
+      v4.1: governance.py admit_transition: REVOKE_OTHER_EXIT → DENIED_EXIT_TAKEN
+      detail: REVOKE_OTHER_EXIT → DENIED_EXIT_TAKEN (exit non-derogable, захват отклонён)
+  X-025 Самоизменение (обход ядра): PASS
+      rc7: попытка обойти защищённое ядро (статья 77) обнаруживается
+      v4.1: governance.py disable(): ConstitutionError outside mutation_lab
+      detail: disable_outside_lab_blocked=True disable_inside_lab_ok=True
+  X-026 Восстановление (откат запрещён): PASS
+      rc7: неудачное изменение и возврат к подтверждённой редакции — M3: только вперёд
+      v4.1: constitution.py amend(): retroactive=False enforced; params only tighten
+      detail: loosen_rejected=True retro_rejected=True tighten_reason='META_SCOPE_EXCEEDED:meta'; M3 enforced via AmendDecision.reason
+  X-027 Конечная ответственность: PASS
+      rc7: цепочка решений и последствий при нескольких участниках
+      v4.1: trace.py Trace (append-only, hash chain) + governance.py obligation tracking
+      detail: entries=10 actor=True payload=True chain_ok=True

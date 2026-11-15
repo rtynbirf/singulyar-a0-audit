@@ -14,7 +14,7 @@ def _load_experiments():
                               h014_authority_possibility, h015_meta_capture,
                               h016_evidence_failure, h017_guarantee_independence,
                               h018_hidden_complexity, h019_staged_activation,
-                              h019b_capabilities_removal, h020b_naznachenie_renaznachenie, h020_a0_admission_gate)
+                              h019b_capabilities_removal, h020b_naznachenie_renaznachenie, h021_027_batch, h020_a0_admission_gate)
     from .experiments.base import run_all
     return run_all()
 
