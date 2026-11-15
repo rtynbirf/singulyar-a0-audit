@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns:
+          - "*"
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      python:
+        patterns:
+          - "*"
+# АУДИТ-БАНДЛ НА АВТОМАТЕ (2026-11-16): экосистемы github-actions + pip, weekly, группировка.
+# Вердикт-носители (reports/, logs/, r4_implementation/, scripts/, R4_X019_DESIGN.md)
+# запечатаны SHA256SUMS.txt — бампы зависимостей вердикты не касаются (страж красит дрейф).

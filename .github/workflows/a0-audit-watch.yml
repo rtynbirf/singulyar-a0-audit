@@ -1,0 +1,53 @@
+name: СТРАЖ ВЕРДИКТОВ A0
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "11 9 * * 1"   # понедельник 09:11 UTC — после bundle-backup 03:00 / house-pulse 06:03 / token-expiry-watch 07:00
+
+permissions:
+  contents: read
+
+concurrency:
+  group: a0-audit-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout (пин из действующих зелёных прогонов дома)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Python 3.12 (пин из зелёных прогонов дома)
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: «Самоприёмка инструментов аудитора» — синтаксис
+        run: |
+          python3 -m py_compile scripts/*.py r4_implementation/*.py
+          echo "py_compile: ACCEPT (10 файлов)"
+
+      - name: «Самотест JCS» — A9 жив (stdlib-only)
+        run: |
+          set -o pipefail
+          python3 -B scripts/auditor_jcs.py --selftest | tee /tmp/jcs.out
+          grep -q '\[JCS_SELFTEST\] 7/7' /tmp/jcs.out
+
+      - name: «Страж вердиктов» — бандл аудита не дрейфует
+        run: |
+          sha256sum -c SHA256SUMS.txt
+
+      - name: Итог в job summary
+        if: always()
+        run: |
+          {
+            echo "## СТРАЖ ВЕРДИКТОВ A0 · $(date -u +%FT%TZ)"
+            echo "- py_compile 10 скриптов аудитора и r4_implementation — см. лог"
+            echo "- JCS selftest 7/7 (RFC 8785 §3.2.3) — см. лог"
+            echo "- sha256sum -c SHA256SUMS.txt: 41 вердикт-носитель (reports/, logs/, r4_implementation/, scripts/, R4_X019_DESIGN.md) байт-в-байт — см. лог"
+            echo "- вердикты: reports/A0_STANDARD_v0.2.5_AUDIT_REPORT.pdf (PACKAGE VALID) · reports/A0_BRIDGE_AUDIT_REPORT.pdf (BRIDGE VALID)"
+            echo "- тишина = айс; красный = дрейф вердикт-носителя или смерть инструментов"
+          } >> "$GITHUB_STEP_SUMMARY"

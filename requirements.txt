@@ -1,0 +1,7 @@
+# Среда аудитора — версии прогона аудита 2026-11-15 (logs/A2_versions.txt, README «Среда аудитора»)
+jsonschema==4.26.0
+rfc8785==0.1.4
+rfc3339-validator==0.1.4
+rfc3986-validator==0.1.1
+pytest==9.2.0
+reportlab==5.1.0
