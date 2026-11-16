@@ -1,0 +1,6 @@
+[LFS_VERIFY] environment claim: LFS builds using an already installed Linux distribution
+[SOURCE] https://linuxfromscratch.org/lfs/view/development/chapter01/how.html
+[RESULT] "The LFS system will be built by using an already installed Linux distribution (such as Debian, OpenMandriva, Fedora, or openSUSE)"
+[VERDICT] confirmed — claim matches source verbatim
+[DATE] 2026-11-16
+[VERIFIED_BY] Z.ai independent WebSearch verification
