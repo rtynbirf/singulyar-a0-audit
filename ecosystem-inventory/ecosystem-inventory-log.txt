@@ -1,0 +1,7 @@
+[CI_FAIL] hologram
+[ISSUES] polymath-os:2
+[ISSUES] voice-atlas-llm:4
+[ISSUES] cell-rs:1
+[ISSUES] singulyar-a0-audit:1
+[ISSUES] runtime-protocol:1
+[INVENTORY] 36 repos; 13 tests; 34 CI green; 1 CI fail

@@ -1,0 +1,72 @@
+{
+  "claims": [
+    {
+      "claim_id": "ECOSYSTEM-INV",
+      "statement": "36 active repos; 13 with tests; 34 CI green; 1 CI fail",
+      "kind": "observation",
+      "scope": "ecosystem inventory",
+      "scope_id": "inv",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "total repos",
+          "method": "measurement",
+          "result": "36 repos",
+          "protocol": "GitHub API",
+          "instrument": "urllib",
+          "unit": "count",
+          "measurement_value": 36,
+          "raw_data_ref": "ecosystem-inventory-summary.csv",
+          "raw_data_sha256": "fd8747d295b51be7bc1dc058b4da2a1ee4cd9af1d1f90197a3159609481b1717",
+          "quantity": "count",
+          "csv_row": 2,
+          "csv_column": "total",
+          "tolerance": 0
+        },
+        {
+          "description": "repos with tests",
+          "method": "measurement",
+          "result": "13 with tests",
+          "protocol": "GitHub API contents check",
+          "instrument": "urllib",
+          "unit": "count",
+          "measurement_value": 13,
+          "raw_data_ref": "ecosystem-inventory-summary.csv",
+          "raw_data_sha256": "fd8747d295b51be7bc1dc058b4da2a1ee4cd9af1d1f90197a3159609481b1717",
+          "quantity": "count",
+          "csv_row": 2,
+          "csv_column": "have",
+          "tolerance": 0
+        },
+        {
+          "description": "CI failures",
+          "method": "log_analysis",
+          "result": "1 CI fail",
+          "protocol": "GitHub API actions/runs",
+          "raw_data_ref": "ecosystem-inventory-log.txt",
+          "raw_data_sha256": "f307b0aefa7e1c6a603dc81350d12188269d99d5206cfb36445ab919ec13573d",
+          "excerpt": "[INVENTORY] 36 repos; 13 tests; 34 CI green; 1 CI fail"
+        }
+      ]
+    },
+    {
+      "claim_id": "ECOSYSTEM-CI-FAIL",
+      "statement": "hologram repo has CI failure",
+      "kind": "observation",
+      "scope": "inventory",
+      "scope_id": "inv",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "hologram CI fail",
+          "method": "log_analysis",
+          "result": "CI_FAIL",
+          "protocol": "GitHub API",
+          "raw_data_ref": "ecosystem-inventory-log.txt",
+          "raw_data_sha256": "f307b0aefa7e1c6a603dc81350d12188269d99d5206cfb36445ab919ec13573d",
+          "excerpt": "[CI_FAIL] hologram"
+        }
+      ]
+    }
+  ]
+}
