@@ -1,0 +1,5 @@
+[W22-SHA-SWEEP] побайтовая сверка вложения Хозяина с районом singulyar-a0-audit
+[FILE] A0_BRIDGE_AUDIT_REPORT.pdf chat=d7af2d52252b261592b0cad28320da87ee1b858aabdece7f0a2be48b66349be9 repo=d7af2d52252b261592b0cad28320da87ee1b858aabdece7f0a2be48b66349be9 -> СОВПАДАЮТ
+[FILE] A0_STANDARD_v0.2.5_AUDIT_REPORT.pdf chat=521f1584664e882447a11d02c0141e97802f2704afde16f0aa1aed789481f4ac repo=521f1584664e882447a11d02c0141e97802f2704afde16f0aa1aed789481f4ac -> СОВПАДАЮТ
+[LEX-SUMS] проверка SHA256SUMS lex-naturae v0.7: файлов OK=10, FAIL=0
+[VERDICT] цепочка аудит->район->вложение целостна, расхождений не обнаружено

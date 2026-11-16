@@ -1,0 +1,10 @@
+{
+  "nodes": {
+    "w22-canon-check": "52631838979e64417df09f9db2efc9cd8211bf066e8dde8b022ec2c02ee43096",
+    "w22-evidence-sweep": "bcf9ab03ed74c409c00cbda18d1babfe45b99b5fa5c2fa4893865a1aa2d7617a",
+    "w22-jcs-difftest": "37d79fa9ce7fb97d10344055942d2a91189709b70090513dc246bc4871caee54",
+    "w22-jcs-impl": "a32ed87ce2a214c85b7632d18283950ddebc7dbd8eb5c21da7df945ed1eff006",
+    "w22-witness-sign": "0ca376fd1658cba290e70f3d5a3fd7b3761aba7ac00dcf5291899ea62e62f382",
+    "w22-witness-verify": "c18d59cec1e9cc52589ff36f7d01e8f695cb06794e9ce6ab11a8b4ef7029b845"
+  }
+}

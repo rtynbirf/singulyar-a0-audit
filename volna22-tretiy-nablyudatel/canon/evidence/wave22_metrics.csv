@@ -1,0 +1,8 @@
+metric,value,source
+diff_total_cases,20000,DIFFERENTIAL_RESULTS.txt
+mine_vs_oracle_mismatches,0,DIFFERENTIAL_RESULTS.txt
+neighbor_vs_oracle_mismatches,2580,DIFFERENTIAL_RESULTS.txt
+neighbor_astral_mismatches,1542,DIFFERENTIAL_RESULTS.txt
+witness_verify_passes,4,witness_verify.log
+sha_sweep_files_matched,2,sha_sweep.log
+lex_sums_files_ok,10,sha_sweep.log

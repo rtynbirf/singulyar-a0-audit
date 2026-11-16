@@ -1,0 +1,64 @@
+{
+  "record": {
+    "witness_type": "third_observer_record",
+    "schema": "bridge-aligned/1",
+    "witness_id": "third-observer-zai-wave22",
+    "created_utc": "2026-11-16T19:06:45Z",
+    "vector": "долгая дорога синтеза: S1 закрыт соседом (PACKAGE VALID + BRIDGE VALID); здесь — S4/O-B1",
+    "role": "независимый третий наблюдатель: не автор моста, не автор аудита",
+    "independence_profile": {
+      "reviewer_independence": "I2",
+      "reference_independence": "I2",
+      "procedure_reproducibility": "I4"
+    },
+    "conflict_of_interest": [
+      "один вендор модели (Z.ai) с автором аудита; другая сессия/инстанс, контекст не разделялся",
+      "пакет A0_STANDARD_v0.2.5.zip недоступен наблюдателю (эфемерный) — см. out_of_scope"
+    ],
+    "subjects": [
+      {
+        "id": "A0_STANDARD_v0.2.5_AUDIT_REPORT.pdf",
+        "sha256": "521f1584664e882447a11d02c0141e97802f2704afde16f0aa1aed789481f4ac",
+        "checked": "копия во вложении Хозяина ≡ копии в s0a/reports; 12 страниц; вердикт PACKAGE VALID"
+      },
+      {
+        "id": "A0_BRIDGE_AUDIT_REPORT.pdf",
+        "sha256": "d7af2d52252b261592b0cad28320da87ee1b858aabdece7f0a2be48b66349be9",
+        "checked": "копии совпадают; 11 страниц; вердикт BRIDGE VALID; формула V-уровней (стр. 6) извлечена и закодирована в verify_witness.py"
+      },
+      {
+        "id": "lex_naturae-v0.7 bundle (s0a/lex-naturae-v0.7-audit)",
+        "checked": "SHA256SUMS соседа: 10/10 файлов OK (сверка sha256sum -c)"
+      },
+      {
+        "id": "дифференциальный корпус JCS",
+        "checked": "20000 кейсов: моя реализация ≡ оракулу rfc8785 — 0 байтовых расхождений; auditor_jcs.py соседа ≢ оракулу — 2580 (сортировка code points вместо UTF-16; '+' в экспонентах)"
+      }
+    ],
+    "method": [
+      "scripts/third_observer/jcs_third.py — своя RFC 8785, самотест на канонических примерах RFC",
+      "scripts/third_observer/differential_test.py — дифтест (seed 20261116)",
+      "sha256 сверка вложений Хозяина с районом singulyar-a0-audit"
+    ],
+    "findings": [
+      "O-TO-1: auditor_jcs.py (район) не является общей реализацией RFC 8785: (а) сортировка ключей по Unicode code points вместо UTF-16 code units — астральные ключи (эмодзи) сортируются неверно; (б) положительные экспоненты без '+'. На данных TASK_SET (ASCII-ключи) ошибки не срабатывают — вывод S2 соседа не отменяется; повторное использование скрипта как общего канонизатора — только после исправления",
+      "O-TO-2: оба аудиторских PDF, вложенные Хозяином, байт-в-байт совпадают с районными копиями — цепочка «аудит→район» целостна",
+      "O-TO-3: пакет A0 эфемерен: полный перепрогон A1–A10 третьим наблюдателем невозможен — допуск данных A0 остаётся решением потребителя"
+    ],
+    "out_of_scope": [
+      "A0_STANDARD_v0.2.5.zip — недоступен: пересчёт freeze_sha256 (6c4b3124…7924) в объём настоящего свидетества НЕ входит",
+      "SINGULYAR_A0_SYNTHESIS_v1.zip — недоступен: end-to-end прогон моста не выполнялся"
+    ],
+    "evidence_level_claim": "V3 (скоуп: перечисленные subjects, только они)",
+    "evidence_level_by_bridge_formula": "V3",
+    "identity": {
+      "observer_id": "zai-glm-wave22-third-observer",
+      "signing_key_alg": "Ed25519",
+      "signing_key_id": "ed25519:sha256:13d6939805e44134c8658086ea26e598",
+      "public_key_ed25519_b64": "ld7S3gjDji3duxoMEF2G4DAgpWdFFT+KLBQUPSHq6Lk="
+    }
+  },
+  "canonical_body_sha256": "0a0f59652c62eeb15be4dfd794db644ecebb2298b9585fbe16a690985f23a79e",
+  "canonical_body_bytes_len": 4027,
+  "signature_ed25519_b64": "E0EbluV9BWmI+Jo8Xr6JAKEHwKCZuAGP/r9IwhY2sEGjxtQccIlHUVrjM4ULcE/+saVQFikqQyuxHu87SsfaBw=="
+}

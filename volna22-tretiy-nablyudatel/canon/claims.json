@@ -1,0 +1,190 @@
+{
+  "claims": [
+    {
+      "claim_id": "W22-001",
+      "statement": "Оба аудиторских PDF из вложения Хозяина байт-в-байт совпали с районными копиями в singulyar-a0-audit/reports, сводка lex-naturae v0.7 — 10 из 10 файлов.",
+      "kind": "observation",
+      "scope": "волна-22, сверка артефактов вложение-район",
+      "scope_id": "w22.artifact-sweep",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "дословная строка сверки PDF с хешами",
+          "method": "log_analysis",
+          "result": "дословная выдержка присутствует в файле-свидетеле, SHA-256 совпадает",
+          "protocol": "перепрогон скриптов волны-22; выдержка вырезана программно из файла",
+          "raw_data_ref": "evidence/sha_sweep.log",
+          "raw_data_sha256": "6fac45eeb9f0055fa6d33832eff8633e128debf9a394abb55d03ce876ccfbc2d",
+          "excerpt": "[FILE] A0_STANDARD_v0.2.5_AUDIT_REPORT.pdf chat=521f1584664e882447a11d02c0141e97802f2704afde16f0aa1aed789481f4ac repo=521f1584664e882447a11d02c0141e97802f2704afde16f0aa1aed789481f4ac -> СОВПАДАЮТ"
+        },
+        {
+          "description": "число совпавших PDF по CSV-метрикам (строка sha_sweep_files_matched)",
+          "method": "measurement",
+          "result": "CSV row 7, column value: value 2 совпадает с заявленным",
+          "protocol": "перепрогон скриптов волны-22; значение берётся из ячейки CSV, не из памяти",
+          "instrument": "python3 (stdlib csv-парсер lex_naturae)",
+          "unit": "count",
+          "measurement_value": 2,
+          "raw_data_ref": "evidence/wave22_metrics.csv",
+          "raw_data_sha256": "f1deec720cfb847e99bbc995be643f9fd9e7d6f3e91e79f3572f85d0ee39fbd4",
+          "csv_row": 7,
+          "csv_column": "value",
+          "tolerance": 0,
+          "quantity": "count"
+        }
+      ],
+      "testable_question": "",
+      "population": "",
+      "measure": "",
+      "decision_rule": "",
+      "links": []
+    },
+    {
+      "claim_id": "W22-002",
+      "statement": "Собственная реализация RFC 8785 третьего наблюдателя совпала с эталоном rfc8785 на всех сопоставимых кейсах корпуса 20000: 0 байтовых расхождений.",
+      "kind": "observation",
+      "scope": "волна-22, дифференциальный тест JCS",
+      "scope_id": "w22.jcs-difftest",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "размер корпуса дифтеста (строка diff_total_cases)",
+          "method": "measurement",
+          "result": "CSV row 2, column value: value 20000 совпадает с заявленным",
+          "protocol": "перепрогон скриптов волны-22; значение берётся из ячейки CSV, не из памяти",
+          "instrument": "python3 (stdlib csv-парсер lex_naturae)",
+          "unit": "count",
+          "measurement_value": 20000,
+          "raw_data_ref": "evidence/wave22_metrics.csv",
+          "raw_data_sha256": "f1deec720cfb847e99bbc995be643f9fd9e7d6f3e91e79f3572f85d0ee39fbd4",
+          "csv_row": 2,
+          "csv_column": "value",
+          "tolerance": 0,
+          "quantity": "count"
+        },
+        {
+          "description": "расхождений моей реализации с оракулом (строка mine_vs_oracle_mismatches)",
+          "method": "measurement",
+          "result": "CSV row 3, column value: value 0 совпадает с заявленным",
+          "protocol": "перепрогон скриптов волны-22; значение берётся из ячейки CSV, не из памяти",
+          "instrument": "python3 (stdlib csv-парсер lex_naturae)",
+          "unit": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/wave22_metrics.csv",
+          "raw_data_sha256": "f1deec720cfb847e99bbc995be643f9fd9e7d6f3e91e79f3572f85d0ee39fbd4",
+          "csv_row": 3,
+          "csv_column": "value",
+          "tolerance": 0,
+          "quantity": "count"
+        },
+        {
+          "description": "дословный вердикт из сводки дифтеста",
+          "method": "log_analysis",
+          "result": "дословная выдержка присутствует в файле-свидетеле, SHA-256 совпадает",
+          "protocol": "перепрогон скриптов волны-22; выдержка вырезана программно из файла",
+          "raw_data_ref": "evidence/diff_summary.txt",
+          "raw_data_sha256": "b2f78073a949968fc1859b31a385dec3c593bc089a46d5f2c696d721d5862606",
+          "excerpt": "ВЕРДИКТ моей реализации против оракула: PASS"
+        }
+      ],
+      "testable_question": "",
+      "population": "",
+      "measure": "",
+      "decision_rule": "",
+      "links": []
+    },
+    {
+      "claim_id": "W22-003",
+      "statement": "Реализация соседа auditor_jcs.py разошлась с эталоном rfc8785 на 2580 кейсах из 20000, из них 1542 расхождения на данных с астральными символами.",
+      "kind": "observation",
+      "scope": "волна-22, дифференциальный тест JCS",
+      "scope_id": "w22.jcs-difftest",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "расхождений реализации соседа с оракулом (строка neighbor_vs_oracle_mismatches)",
+          "method": "measurement",
+          "result": "CSV row 4, column value: value 2580 совпадает с заявленным",
+          "protocol": "перепрогон скриптов волны-22; значение берётся из ячейки CSV, не из памяти",
+          "instrument": "python3 (stdlib csv-парсер lex_naturae)",
+          "unit": "count",
+          "measurement_value": 2580,
+          "raw_data_ref": "evidence/wave22_metrics.csv",
+          "raw_data_sha256": "f1deec720cfb847e99bbc995be643f9fd9e7d6f3e91e79f3572f85d0ee39fbd4",
+          "csv_row": 4,
+          "csv_column": "value",
+          "tolerance": 0,
+          "quantity": "count"
+        },
+        {
+          "description": "расхождений на астральных данных (строка neighbor_astral_mismatches)",
+          "method": "measurement",
+          "result": "CSV row 5, column value: value 1542 совпадает с заявленным",
+          "protocol": "перепрогон скриптов волны-22; значение берётся из ячейки CSV, не из памяти",
+          "instrument": "python3 (stdlib csv-парсер lex_naturae)",
+          "unit": "count",
+          "measurement_value": 1542,
+          "raw_data_ref": "evidence/wave22_metrics.csv",
+          "raw_data_sha256": "f1deec720cfb847e99bbc995be643f9fd9e7d6f3e91e79f3572f85d0ee39fbd4",
+          "csv_row": 5,
+          "csv_column": "value",
+          "tolerance": 0,
+          "quantity": "count"
+        },
+        {
+          "description": "дословная строка сводки по соседу",
+          "method": "log_analysis",
+          "result": "дословная выдержка присутствует в файле-свидетеле, SHA-256 совпадает",
+          "protocol": "перепрогон скриптов волны-22; выдержка вырезана программно из файла",
+          "raw_data_ref": "evidence/diff_summary.txt",
+          "raw_data_sha256": "b2f78073a949968fc1859b31a385dec3c593bc089a46d5f2c696d721d5862606",
+          "excerpt": "сосед vs оракул: расхождений 2580 (из них с астральными символами: 1542)"
+        }
+      ],
+      "testable_question": "",
+      "population": "",
+      "measure": "",
+      "decision_rule": "",
+      "links": []
+    },
+    {
+      "claim_id": "W22-004",
+      "statement": "Запись-свидетельство волны-22 подписана Ed25519, независимая верификация VERIFIED (4 из 4 проверок), уровень по формуле моста V3 в заявленном скоупе.",
+      "kind": "observation",
+      "scope": "волна-22, S4/O-B1 свидетельство",
+      "scope_id": "w22.witness-s4",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "дословная строка уровня из лога верификации",
+          "method": "log_analysis",
+          "result": "дословная выдержка присутствует в файле-свидетеле, SHA-256 совпадает",
+          "protocol": "перепрогон скриптов волны-22; выдержка вырезана программно из файла",
+          "raw_data_ref": "evidence/witness_verify.log",
+          "raw_data_sha256": "fb088e32174a5df9bd99c3c385b984dde4bb5b591810f251bc85c24abc9a2531",
+          "excerpt": "уровень по формуле моста        : V3 (PASS)"
+        },
+        {
+          "description": "число пройденных проверок верификатора (строка witness_verify_passes)",
+          "method": "measurement",
+          "result": "CSV row 6, column value: value 4 совпадает с заявленным",
+          "protocol": "перепрогон скриптов волны-22; значение берётся из ячейки CSV, не из памяти",
+          "instrument": "python3 (stdlib csv-парсер lex_naturae)",
+          "unit": "count",
+          "measurement_value": 4,
+          "raw_data_ref": "evidence/wave22_metrics.csv",
+          "raw_data_sha256": "f1deec720cfb847e99bbc995be643f9fd9e7d6f3e91e79f3572f85d0ee39fbd4",
+          "csv_row": 6,
+          "csv_column": "value",
+          "tolerance": 0,
+          "quantity": "count"
+        }
+      ],
+      "testable_question": "",
+      "population": "",
+      "measure": "",
+      "decision_rule": "",
+      "links": []
+    }
+  ]
+}

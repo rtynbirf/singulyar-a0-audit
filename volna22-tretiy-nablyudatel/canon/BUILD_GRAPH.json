@@ -1,0 +1,237 @@
+{
+  "version": "1.0.0",
+  "lifecycle": {
+    "exit_criteria": [
+      "STRUCTURE PASS: validate_graph.py exit 0 на BUILD_GRAPH.json",
+      "lex-naturae valid: lex_naturae.py exit 0 или 1 на claims.json",
+      "все claims статуса SUPPORTED имеют evidence, перепрогоняемую из пачки волны-22"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "w22-evidence-sweep",
+      "version": "1.0.0",
+      "scaffold": false,
+      "status": "PASS",
+      "falsification_or_revision_condition": "Если повторная сверка SHA-256 вложения и района обнаружит различие хотя бы одного PDF или суммарный сбой lex-naturae SHA256SUMS — узел переводится в FAIL.",
+      "source": [
+        {
+          "type": "git-repo",
+          "uri": "https://github.com/rtynbirf/singulyar-a0-audit",
+          "claim": "районный репозиторий с отчётами и логами аудита"
+        },
+        {
+          "type": "file",
+          "uri": "file:canon/evidence/sha_sweep.log",
+          "claim": "лог сверки артефактов"
+        }
+      ],
+      "verified_by": [
+        "third-observer-zai-wave22"
+      ],
+      "replaceable_by": [
+        "перепрогон по SHA256SUMS пачки волны-22"
+      ],
+      "evidence": [
+        {
+          "check": "побайтовая сверка SHA-256 двух PDF и сводки lex-naturae",
+          "result": "2 PDF совпали, SHA256SUMS 10/10 OK, лог в evidence/sha_sweep.log",
+          "date": "2026-11-16",
+          "source_ref": "https://github.com/rtynbirf/singulyar-a0-audit"
+        }
+      ],
+      "depends_on": {
+        "build": [],
+        "runtime": []
+      }
+    },
+    {
+      "id": "w22-jcs-impl",
+      "version": "1.0.0",
+      "scaffold": false,
+      "status": "PASS",
+      "falsification_or_revision_condition": "Если повторный прогон differential_test.py (seed 20261116) даст ненулевые расхождения моей реализации с оракулом rfc8785 — узел пересматривается и статус отзывается.",
+      "source": [
+        {
+          "type": "git-repo",
+          "uri": "https://github.com/rtynbirf/lex-naturae",
+          "claim": "инструмент claim/evidence ledger v0.7"
+        },
+        {
+          "type": "file",
+          "uri": "file:canon/evidence/jcs_selftest.log",
+          "claim": "лог самотеста собственной реализации RFC 8785"
+        }
+      ],
+      "verified_by": [
+        "third-observer-zai-wave22"
+      ],
+      "replaceable_by": [
+        "перепрогон по SHA256SUMS пачки волны-22"
+      ],
+      "evidence": [
+        {
+          "check": "самотест на канонических примерах RFC 8785 (числа, сортировка UTF-16, экспоненты)",
+          "result": "SELFTEST : PASS, перепрогон записан в evidence/jcs_selftest.log",
+          "date": "2026-11-16",
+          "source_ref": "file:canon/evidence/jcs_selftest.log"
+        }
+      ],
+      "depends_on": {
+        "build": [],
+        "runtime": []
+      }
+    },
+    {
+      "id": "w22-jcs-difftest",
+      "version": "1.0.0",
+      "scaffold": false,
+      "status": "PASS",
+      "falsification_or_revision_condition": "Если повторный прогон differential_test.py (seed 20261116) даст ненулевые расхождения моей реализации с оракулом rfc8785 — узел пересматривается и статус отзывается.",
+      "source": [
+        {
+          "type": "file",
+          "uri": "file:canon/evidence/diff_summary.txt",
+          "claim": "сводка дифтеста"
+        },
+        {
+          "type": "file",
+          "uri": "file:canon/evidence/wave22_metrics.csv",
+          "claim": "CSV-метрики"
+        }
+      ],
+      "verified_by": [
+        "third-observer-zai-wave22"
+      ],
+      "replaceable_by": [
+        "перепрогон по SHA256SUMS пачки волны-22"
+      ],
+      "evidence": [
+        {
+          "check": "дифференциальный прогон против оракула rfc8785 и скрипта соседа",
+          "result": "моя реализация 0 расхождений; сосед 2580, из них 1542 астральные",
+          "date": "2026-11-16",
+          "source_ref": "file:canon/evidence/diff_summary.txt"
+        }
+      ],
+      "depends_on": {
+        "build": [
+          "w22-jcs-impl"
+        ],
+        "runtime": []
+      }
+    },
+    {
+      "id": "w22-witness-sign",
+      "version": "1.0.0",
+      "scaffold": false,
+      "status": "PASS",
+      "falsification_or_revision_condition": "Если verify_witness.py выдаст NOT_VERIFIED или подпись не сойдётся под открытым ключом из записи — узел пересматривается.",
+      "source": [
+        {
+          "type": "file",
+          "uri": "file:canon/evidence/witness_verify.log",
+          "claim": "лог верификации"
+        }
+      ],
+      "verified_by": [
+        "third-observer-zai-wave22"
+      ],
+      "replaceable_by": [
+        "перепрогон по SHA256SUMS пачки волны-22"
+      ],
+      "evidence": [
+        {
+          "check": "подпись канонизованного корпуса записи свежим ключом Ed25519",
+          "result": "corpus sha256 0a0f5965...a79e, приватный ключ уничтожен, на диск не попадал",
+          "date": "2026-11-16",
+          "source_ref": "file:canon/evidence/witness_verify.log"
+        }
+      ],
+      "depends_on": {
+        "build": [
+          "w22-evidence-sweep",
+          "w22-jcs-impl"
+        ],
+        "runtime": []
+      }
+    },
+    {
+      "id": "w22-witness-verify",
+      "version": "1.0.0",
+      "scaffold": false,
+      "status": "PASS",
+      "falsification_or_revision_condition": "Если verify_witness.py выдаст NOT_VERIFIED или подпись не сойдётся под открытым ключом из записи — узел пересматривается.",
+      "source": [
+        {
+          "type": "file",
+          "uri": "file:canon/evidence/witness_verify.log",
+          "claim": "лог верификации"
+        }
+      ],
+      "verified_by": [
+        "third-observer-zai-wave22"
+      ],
+      "replaceable_by": [
+        "перепрогон по SHA256SUMS пачки волны-22"
+      ],
+      "evidence": [
+        {
+          "check": "перепрогон verify_witness.py: корпус, длина, подпись, формула",
+          "result": "4 из 4 проверок PASS, итог VERIFIED, уровень V3",
+          "date": "2026-11-16",
+          "source_ref": "file:canon/evidence/witness_verify.log"
+        }
+      ],
+      "depends_on": {
+        "build": [
+          "w22-witness-sign"
+        ],
+        "runtime": []
+      }
+    },
+    {
+      "id": "w22-canon-check",
+      "version": "1.0.0",
+      "scaffold": false,
+      "status": "PASS",
+      "falsification_or_revision_condition": "Если validate_graph.py или lex_naturae.py вернут exit 2 (invalid) на артефактах канона волны-22.1 — узел пересматривается, claim не считается подтверждённым.",
+      "source": [
+        {
+          "type": "git-repo",
+          "uri": "https://github.com/rtynbirf/lex-naturae",
+          "claim": "инструмент claim/evidence ledger v0.7"
+        },
+        {
+          "type": "file",
+          "uri": "file:canon/canon_run_output.txt",
+          "claim": "лог канон-проверки волны-22.1"
+        }
+      ],
+      "verified_by": [
+        "third-observer-zai-wave22"
+      ],
+      "replaceable_by": [
+        "перепрогон canon_check.py + canon_pass2.py из scripts/"
+      ],
+      "evidence": [
+        {
+          "check": "канон-проверка на себе: claims волны-22 прогнаны через validate_graph.py v0.3 и lex_naturae.py v0.7",
+          "result": "проход 1: STRUCTURE PASS (5 узлов); lex-naturae valid=true, 4/4 claims valid, exit=1 (2 честных предупреждения о переиспользовании файла-свидетельства)",
+          "date": "2026-11-16",
+          "source_ref": "file:canon/canon_run_output.txt"
+        }
+      ],
+      "depends_on": {
+        "build": [
+          "w22-evidence-sweep",
+          "w22-jcs-impl",
+          "w22-jcs-difftest",
+          "w22-witness-sign",
+          "w22-witness-verify"
+        ],
+        "runtime": []
+      }
+    }
+  ]
+}

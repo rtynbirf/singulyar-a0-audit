@@ -1,0 +1,117 @@
+ВОЛНА-22.1 — канон-проверка на себе (проход 1)
+$ python validate_graph.py BUILD_GRAPH.json
+exit=0
+STRUCTURE: PASS (5 nodes)
+CLAIMS: PASS=5, FAIL=0, PARTIAL=0, UNKNOWN=0
+LOCK: absent (run --update-lock)
+
+$ python lex_naturae.py claims.json
+exit=1
+{
+  "valid": true,
+  "claim_count": 4,
+  "claims": [
+    {
+      "valid": true,
+      "claim_id": "W22-001",
+      "kind": "observation",
+      "status": "SUPPORTED",
+      "evidence_count": 2,
+      "evidence_verification": "CHECKED_AGAINST_LOCAL_ARTIFACTS",
+      "evidence_checks": [
+        "csv_cell_value",
+        "text_excerpt"
+      ],
+      "strongest_check": "csv_cell_value",
+      "document_source_attribution": "NOT_APPLICABLE",
+      "link_count": 0,
+      "meaning": "The submitter marked this supported; evidence is not independently authenticated.",
+      "scope": "волна-22, сверка артефактов вложение-район",
+      "claim_index": 0
+    },
+    {
+      "valid": true,
+      "claim_id": "W22-002",
+      "kind": "observation",
+      "status": "SUPPORTED",
+      "evidence_count": 2,
+      "evidence_verification": "CHECKED_AGAINST_LOCAL_ARTIFACTS",
+      "evidence_checks": [
+        "csv_cell_value",
+        "text_excerpt"
+      ],
+      "strongest_check": "csv_cell_value",
+      "document_source_attribution": "NOT_APPLICABLE",
+      "link_count": 0,
+      "meaning": "The submitter marked this supported; evidence is not independently authenticated.",
+      "scope": "волна-22, дифференциальный тест JCS",
+      "claim_index": 1
+    },
+    {
+      "valid": true,
+      "claim_id": "W22-003",
+      "kind": "observation",
+      "status": "SUPPORTED",
+      "evidence_count": 2,
+      "evidence_verification": "CHECKED_AGAINST_LOCAL_ARTIFACTS",
+      "evidence_checks": [
+        "csv_cell_value",
+        "text_excerpt"
+      ],
+      "strongest_check": "csv_cell_value",
+      "document_source_attribution": "NOT_APPLICABLE",
+      "link_count": 0,
+      "meaning": "The submitter marked this supported; evidence is not independently authenticated.",
+      "scope": "волна-22, дифференциальный тест JCS",
+      "claim_index": 2
+    },
+    {
+      "valid": true,
+      "claim_id": "W22-004",
+      "kind": "observation",
+      "status": "SUPPORTED",
+      "evidence_count": 2,
+      "evidence_verification": "CHECKED_AGAINST_LOCAL_ARTIFACTS",
+      "evidence_checks": [
+        "csv_cell_value",
+        "text_excerpt"
+      ],
+      "strongest_check": "csv_cell_value",
+      "document_source_attribution": "NOT_APPLICABLE",
+      "link_count": 0,
+      "meaning": "The submitter marked this supported; evidence is not independently authenticated.",
+      "scope": "волна-22, S4/O-B1 свидетельство",
+      "claim_index": 3
+    }
+  ],
+  "graph_errors": [],
+  "graph_warnings": [
+    "claim 'W22-002' reuses the same evidence file; duplicates are not independent",
+    "claim 'W22-003' reuses the same evidence file; duplicates are not independent"
+  ],
+  "exit_code": 1
+}
+
+ВОЛНА-22.1 — проход 2 (финализация: узел w22-canon-check в графе + lock)
+$ python validate_graph.py BUILD_GRAPH.json
+exit=0
+STRUCTURE: PASS (6 nodes)
+CLAIMS: PASS=6, FAIL=0, PARTIAL=0, UNKNOWN=0
+LOCK: absent (run --update-lock)
+
+$ python validate_graph.py BUILD_GRAPH.json --update-lock
+exit=0
+STRUCTURE: PASS (6 nodes)
+CLAIMS: PASS=6, FAIL=0, PARTIAL=0, UNKNOWN=0
+LOCK: written BUILD_GRAPH.lock.json
+
+$ python validate_graph.py BUILD_GRAPH.json
+exit=0
+STRUCTURE: PASS (6 nodes)
+CLAIMS: PASS=6, FAIL=0, PARTIAL=0, UNKNOWN=0
+LOCK: ok
+
+$ python lex_naturae.py claims.json
+exit=1
+valid=True
+ИТОГ КАНОНА: STRUCTURE PASS + lex-naturae valid=true -> ГОТОВО (warnings честные, не блокируют)

@@ -1,0 +1,6 @@
+[W22-JCS-SELFTEST] перепрогон самотеста jcs_third.py на канонических примерах RFC
+numbers  : {"numbers":[1e+30,4.5,0.002]} → PASS
+sortings : {"\n":"nl"," ":"sp","0":"zero","":"ctl","ü":"u-uml","€":"euro"}
+expect   : {"\n":"nl"," ":"sp","0":"zero","":"ctl","ü":"u-uml","€":"euro"} → PASS
+exponents: [1.5e-7,1e+21,100000000000000000000,0,1e-7]
+SELFTEST : PASS
