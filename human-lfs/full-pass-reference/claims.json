@@ -1,0 +1,38 @@
+{
+  "claims": [
+    {
+      "claim_id": "HUMAN-LFS-ENVIRONMENT-PASS",
+      "statement": "LFS documents a staged build process using an existing host environment",
+      "kind": "observation",
+      "scope": "HUMAN-LFS environment node verification",
+      "scope_id": "human-lfs-env",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "LFS 12.1 chapter 1.1 verification result",
+          "method": "measurement",
+          "result": "1 claim verified against LFS source",
+          "protocol": "independent WebSearch of LFS primary source",
+          "instrument": "WebSearch + manual verification",
+          "unit": "count",
+          "measurement_value": 1,
+          "raw_data_ref": "evidence/env_verify.csv",
+          "raw_data_sha256": "86c8d5a0c358dfeff5d9cca841caf9cd42224b92561dfdafaac7e5c72fdebe62",
+          "quantity": "count",
+          "csv_row": 2,
+          "csv_column": "verified",
+          "tolerance": 0
+        },
+        {
+          "description": "Verification log with verbatim source quote",
+          "method": "log_analysis",
+          "result": "claim matches source verbatim",
+          "protocol": "WebSearch retrieval of LFS chapter 1.1",
+          "raw_data_ref": "evidence/env_verify.log",
+          "raw_data_sha256": "e9bfe52f0c6fe2f8a1d5b2b6652a5300db5558050f0813403cd39bd453f660b8",
+          "excerpt": "[RESULT] \"The LFS system will be built by using an already installed Linux distribution"
+        }
+      ]
+    }
+  ]
+}
