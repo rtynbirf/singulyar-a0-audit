@@ -1,0 +1,106 @@
+{
+  "claims": [
+    {
+      "claim_id": "ECO-SBOM-33",
+      "statement": "33 of 36 active repos have auto-generated SBOM via GitHub dependency-graph",
+      "kind": "observation",
+      "scope": "ecosystem full inventory",
+      "scope_id": "full-inv",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "Repos with SBOM: 33 of 36",
+          "method": "measurement",
+          "result": "33 repos with SBOM",
+          "protocol": "GitHub API: /dependency-graph/sbom",
+          "instrument": "urllib + GitHub REST API",
+          "unit": "count",
+          "measurement_value": 33,
+          "raw_data_ref": "ecosystem-full-summary.csv",
+          "raw_data_sha256": "c8ca94e9b5cddaef3472816916d92693a1cbf8098422aede20442ab539d657de",
+          "quantity": "count",
+          "csv_row": 2,
+          "csv_column": "have",
+          "tolerance": 0
+        },
+        {
+          "description": "SBOM log",
+          "method": "log_analysis",
+          "result": "33/36 have SBOM; 3 missing (khozyain, karta, fond-host)",
+          "protocol": "GitHub API dependency-graph endpoint",
+          "raw_data_ref": "ecosystem-full-log.txt",
+          "raw_data_sha256": "07ae658bfeaee285d7a97084d8661b85547a3409624a093f4f502ad1692beabd",
+          "excerpt": "[SBOM] 33/36 repos have auto-generated SBOM via dependency-graph"
+        }
+      ]
+    },
+    {
+      "claim_id": "ECO-DORA-FAIL-RATE",
+      "statement": "Change fail rate: 1.5% (144 failures out of 9868 workflow runs) — elite benchmark 0-5%",
+      "kind": "observation",
+      "scope": "DORA proxy metrics",
+      "scope_id": "dora",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "Change fail rate: 144/9868 = 1.5%",
+          "method": "measurement",
+          "result": "1.5% fail rate",
+          "protocol": "GitHub API: /actions/runs total_count + conclusion=failure",
+          "instrument": "urllib + GitHub REST API",
+          "unit": "count",
+          "measurement_value": 144,
+          "raw_data_ref": "ecosystem-full-summary.csv",
+          "raw_data_sha256": "c8ca94e9b5cddaef3472816916d92693a1cbf8098422aede20442ab539d657de",
+          "quantity": "count",
+          "csv_row": 7,
+          "csv_column": "missing",
+          "tolerance": 0
+        },
+        {
+          "description": "DORA log",
+          "method": "log_analysis",
+          "result": "9868 runs; 144 failures",
+          "protocol": "GitHub API actions/runs",
+          "raw_data_ref": "ecosystem-full-log.txt",
+          "raw_data_sha256": "07ae658bfeaee285d7a97084d8661b85547a3409624a093f4f502ad1692beabd",
+          "excerpt": "[DORA] 9868 workflow runs; 144 failures; change_fail_rate=1.5%"
+        }
+      ]
+    },
+    {
+      "claim_id": "ECO-SLSA-GAP",
+      "statement": "0 of 36 repos have SLSA artifact attestations — provenance gap",
+      "kind": "observation",
+      "scope": "SLSA provenance",
+      "scope_id": "slsa",
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "claim_id": "ECO-DEP-GRAPH",
+      "statement": "8 of 36 repos have managed dependency files (requirements.txt/package.json/Cargo.toml/pyproject.toml)",
+      "kind": "observation",
+      "scope": "dependency graph",
+      "scope_id": "dep-graph",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "Repos with dep files: 8",
+          "method": "measurement",
+          "result": "8 repos",
+          "protocol": "GitHub API: /contents/ check",
+          "instrument": "urllib",
+          "unit": "count",
+          "measurement_value": 8,
+          "raw_data_ref": "ecosystem-full-summary.csv",
+          "raw_data_sha256": "c8ca94e9b5cddaef3472816916d92693a1cbf8098422aede20442ab539d657de",
+          "quantity": "count",
+          "csv_row": 8,
+          "csv_column": "have",
+          "tolerance": 0
+        }
+      ]
+    }
+  ]
+}

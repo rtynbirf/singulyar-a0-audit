@@ -1,0 +1,8 @@
+metric,total,have,missing,detail
+SBOM,36,33,3,GitHub dependency-graph auto-generated
+SLSA_attestations,36,0,36,0 attestations — real gap
+deployments,36,13,23,350 total deployments
+releases,36,34,2,182 total releases
+workflow_runs,36,35,1,9868 total runs
+change_fail_rate,9868,9724,144,1.5% fail rate (elite: 0-5%)
+dependency_files,36,8,28,requirements.txt/package.json/Cargo.toml/pyproject.toml

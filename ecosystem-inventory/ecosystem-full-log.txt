@@ -1,0 +1,24 @@
+[CI_FAILS] singulyar: 13 failed runs out of 2298
+[CI_FAILS] singulyar-a0-audit: 4 failed runs out of 21
+[CI_FAILS] .github: 6 failed runs out of 980
+[NO_SBOM] khozyain: no dependency-graph SBOM
+[CI_FAILS] cell-swarm: 8 failed runs out of 1067
+[CI_FAILS] index: 1 failed runs out of 181
+[CI_FAILS] rtynbirf: 3 failed runs out of 893
+[NO_SBOM] karta: no dependency-graph SBOM
+[NO_SBOM] fond-host: no dependency-graph SBOM
+[CI_FAILS] fond-host: 3 failed runs out of 6
+[CI_FAILS] polymat-hive: 2 failed runs out of 54
+[CI_FAILS] polymath-os: 24 failed runs out of 1000
+[CI_FAILS] voice-atlas-llm: 15 failed runs out of 184
+[CI_FAILS] cell-rs: 24 failed runs out of 125
+[CI_FAILS] polymath-core: 4 failed runs out of 29
+[CI_FAILS] github-doctrine: 4 failed runs out of 51
+[CI_FAILS] runtime-protocol: 14 failed runs out of 125
+[CI_FAILS] hologram: 5 failed runs out of 42
+[CI_FAILS] edinyy-svod: 12 failed runs out of 222
+[CI_FAILS] agryp: 1 failed runs out of 347
+[CI_FAILS] combain-v2: 1 failed runs out of 386
+[DORA] 9868 workflow runs; 144 failures; change_fail_rate=1.5% (elite benchmark: 0-5%)
+[SLSA] 0/36 repos have attestations — real gap
+[SBOM] 33/36 repos have auto-generated SBOM via dependency-graph
