@@ -1,0 +1,44 @@
+=== S1. Состав архива (unzip -l, хвост-сводка) ===
+Archive:  polymath_agent_final_package.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     1782  2026-11-16 20:25   README.md
+     3503  2026-11-16 20:25   ARCHITECTURE_OVERVIEW.md
+     3315  2026-11-16 20:25   ROADMAP.md
+     5548  2026-11-16 20:25   TECHNICAL_SPECIFICATION.md
+     9900  2026-11-16 20:25   polymath_agent_dashboard-v3.html
+    13377  2026-11-16 20:25   polymath_agent_dashboard-v2.html
+     8946  2026-11-16 20:25   polymath_agent_dashboard.html
+     6828  2026-11-16 20:25   polymath_agent_prototype-v3.py
+     7082  2026-11-16 20:25   polymath_agent_prototype-v2.py
+     4032  2026-11-16 20:25   polymath_agent_prototype.py
+---------                     -------
+    64313                     10 files
+=== S2. Секреты: паттерны ghp_/github_pat_/sk-/AKIA/xox/PEM ===
+секретов нет (паттерны не найдены)
+=== S3. Опасные паттерны в py: сеть/исполнение/внешние пути ===
+чисто: сеть/исполнение/внешние пути отсутствуют
+=== S4. Импорты всех py (только stdlib?) ===
+      1 from typing import Dict, List, Any
+      3 import json
+      3 import math
+      3 import random
+      1 import time
+=== S5. Внешние ссылки в HTML (CDN) ===
+      1 src="https://cdn.jsdelivr.net/npm/chart.js
+      1 src="https://cdn.tailwindcss.com
+cdn_v3_count: 2
+cdn_v1_count: 0
+cdn_v2_count: 0
+=== S6. Живой прогон v3 (python3 -I, exit code фиксируется) ===
+v3_exit_code: 0
+v3_final_entropy: 0.01
+=== S7. Диалог ЧЕЛОВЕК: размер и число этапов ===
+3628 /tmp/unpack_chelovek/ДИАЛОГ_СЕССИИ_ЧЕЛОВЕК.md
+6
+=== S8. Дубли в polymath-core (поиск перед созданием) ===
+polymath-core/polymath_agent_prototype-v3.py: HTTP 404
+polymath-core/TECHNICAL_SPECIFICATION.md: HTTP 404
+=== S9. SHA256 доказательств ===
+30d30fdf697467aa152e1d24200c49878ae89a505e365c45f3b9bbadb9820e85  /tmp/verify_pid1/evidence/output.log
+aded353a4f96a43b8297fd28918563f269986b993542a91b8377eaa615af11a1  /tmp/verify_pid1/evidence/v3_run.json

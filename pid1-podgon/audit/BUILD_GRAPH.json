@@ -1,0 +1,314 @@
+{
+  "schema_version": "0.3.0",
+  "project": "HUMAN-LFS",
+  "status": "experimental",
+  "analogy_notice": "PID 0/PID 1 and LFS are architectural analogies, not literal equivalences between Linux processes and the concept of HUMAN.",
+  "lifecycle": {
+    "host_environment": "External knowledge and practical environment used during exploration and construction.",
+    "chroot_transition": "A proposed independence test: the constructed system must operate without relying on temporary scaffolding except explicitly declared interfaces.",
+    "exit_criteria": [
+      "All runtime-critical dependencies are declared.",
+      "Temporary teachers/scaffolds are identified.",
+      "A rebuild can be performed from recorded sources and instructions.",
+      "Unknowns and unverified claims remain visible."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "environment",
+      "role": "PID0_ANALOGY",
+      "name": "Environment and world practices",
+      "source": [
+        {
+          "type": "reference",
+          "uri": "https://www.linuxfromscratch.org/lfs/view/stable/",
+          "claim": "LFS documents a staged build process using an existing host environment."
+        },
+        {
+          "type": "reference",
+          "uri": "https://linuxfromscratch.org/lfs/view/12.1/chapter01/how.html",
+          "claim": "LFS builds the new system using an already installed Linux distribution (the host)."
+        },
+        {
+          "type": "reference",
+          "uri": "https://linuxfromscratch.org/lfs/view/9.0/chapter01/how.html",
+          "claim": "After the toolchain passes, the build no longer depends on the host distribution except the running kernel."
+        }
+      ],
+      "version": "baseline-2026-11-16",
+      "verified_by": [
+        "human_review",
+        "source_retrieval"
+      ],
+      "scaffold": true,
+      "replaceable_by": [
+        "another documented source collection"
+      ],
+      "falsification_or_revision_condition": "A cited practice is shown to be obsolete, misrepresented, inapplicable, or contradicted by stronger reproducible evidence.",
+      "depends_on": {
+        "build": [],
+        "runtime": []
+      },
+      "status": "PASS",
+      "evidence": [
+        {
+          "check": "Retrieved LFS 12.1, chapter 1.1 'How to Build an LFS System' (web search)",
+          "result": "Page states the new system is built using an already installed Linux distribution (the host). Claim confirmed.",
+          "date": "2026-11-16",
+          "source_ref": "https://linuxfromscratch.org/lfs/view/12.1/chapter01/how.html"
+        },
+        {
+          "check": "Retrieved LFS 9.0, chapter 1.1 (older book version, web search)",
+          "result": "Page states that after the toolchain stage the build no longer depends on the host except the running kernel. Confirmed for 9.0 only; not re-checked in current stable.",
+          "date": "2026-11-16",
+          "source_ref": "https://linuxfromscratch.org/lfs/view/9.0/chapter01/how.html"
+        }
+      ]
+    },
+    {
+      "id": "human_core",
+      "role": "PID1_ANALOGY",
+      "name": "HUMAN whole-system core",
+      "source": [
+        {
+          "type": "user_principle",
+          "uri": "conversation",
+          "claim": "HUMAN is treated as a whole not reducible to a sum of individuals or tools."
+        }
+      ],
+      "version": "hypothesis-0.1",
+      "verified_by": [
+        "explicit_definition",
+        "counterexample_review"
+      ],
+      "scaffold": false,
+      "replaceable_by": [
+        "revised principle with recorded rationale and impact analysis"
+      ],
+      "falsification_or_revision_condition": "A clearly defined counterexample demonstrates that the principle is internally inconsistent or fails its stated purpose. Revision requires recording the counterexample, scope, and consequences.",
+      "depends_on": {
+        "build": [
+          "environment",
+          "learning_interface",
+          "scalars"
+        ],
+        "runtime": [
+          "scalars",
+          "learning_interface"
+        ]
+      },
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "scalars",
+      "role": "MEASUREMENT",
+      "name": "Scalars and observables",
+      "source": [
+        {
+          "type": "design_hypothesis",
+          "uri": "conversation",
+          "claim": "Measurements are partial observations and must not be mistaken for the whole."
+        }
+      ],
+      "version": "hypothesis-0.1",
+      "verified_by": [
+        "operational_definition_review",
+        "measurement_limit_review"
+      ],
+      "scaffold": false,
+      "replaceable_by": [
+        "better-defined measurement set"
+      ],
+      "falsification_or_revision_condition": "A measure cannot be operationally defined, is not reproducible, or creates a misleading proxy for the property it claims to represent.",
+      "depends_on": {
+        "build": [
+          "environment"
+        ],
+        "runtime": []
+      },
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "teacher_sources",
+      "role": "LEARNING_SOURCES",
+      "name": "Teacher sources (concrete, replaceable)",
+      "source": [
+        {
+          "type": "design_hypothesis",
+          "uri": "conversation",
+          "claim": "Learning sources may include people, nature, practice, history, experiments, tools, and AI."
+        }
+      ],
+      "version": "hypothesis-0.1",
+      "verified_by": [
+        "provenance_check",
+        "independent_cross_check"
+      ],
+      "scaffold": true,
+      "replaceable_by": [
+        "independent source or direct experience"
+      ],
+      "falsification_or_revision_condition": "A source is unreliable for the specific claim, cannot be traced, or its teaching fails reproducible practical tests.",
+      "depends_on": {
+        "build": [
+          "environment"
+        ],
+        "runtime": []
+      },
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "learning_interface",
+      "role": "INTERFACE",
+      "name": "Learning interface and capability",
+      "source": [
+        {
+          "type": "design_hypothesis",
+          "uri": "conversation",
+          "claim": "The core depends on the capability to receive and verify new experience, not on any particular teacher or source."
+        }
+      ],
+      "version": "hypothesis-0.1",
+      "verified_by": [
+        "removal_test",
+        "provenance_check_at_intake"
+      ],
+      "scaffold": false,
+      "replaceable_by": [
+        "another intake-and-verification protocol"
+      ],
+      "falsification_or_revision_condition": "Removing or replacing any single teacher source breaks the experience-to-core update loop, or the interface admits an input without recording its provenance.",
+      "depends_on": {
+        "build": [
+          "environment"
+        ],
+        "runtime": [
+          "teacher_sources"
+        ]
+      },
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "operations",
+      "role": "LIFECYCLE_AND_REAPING",
+      "name": "Lifecycle, service supervision, and unresolved-work reaping",
+      "source": [
+        {
+          "type": "technical_analogy",
+          "uri": "https://man7.org/linux/man-pages/man7/pid_namespaces.7.html",
+          "claim": "Linux PID 1 has special process-lifecycle responsibilities; this node borrows the supervision/reaping idea metaphorically."
+        }
+      ],
+      "version": "design-0.1",
+      "verified_by": [
+        "state_transition_tests",
+        "unresolved_item_audit"
+      ],
+      "scaffold": false,
+      "replaceable_by": [
+        "more explicit lifecycle controller"
+      ],
+      "falsification_or_revision_condition": "A lifecycle transition loses work, hides an unresolved decision, or cannot recover from a failed component.",
+      "depends_on": {
+        "build": [
+          "environment"
+        ],
+        "runtime": [
+          "human_core"
+        ]
+      },
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "pid1-podgon-audit",
+      "role": "AUDIT_GATE",
+      "name": "Package audit of the PID1 podgon (polymath_agent_final_package.zip + ЧЕЛОВЕК.zip)",
+      "source": [
+        {
+          "type": "reference",
+          "uri": "file://upload/polymath_agent_final_package.zip",
+          "claim": "Delivered package: 10 files, 64313 bytes unpacked (README, TECHNICAL_SPECIFICATION, ROADMAP, ARCHITECTURE_OVERVIEW, 3 python kernels v1-v3, 3 HTML dashboards v1-v3)."
+        },
+        {
+          "type": "reference",
+          "uri": "file://upload/%D0%A7%D0%95%D0%9B%D0%9E%D0%92%D0%95%D0%9A.zip",
+          "claim": "Provenance dialog ДИАЛОГ_СЕССИИ_ЧЕЛОВЕК.md: 3628 bytes, 6 session stages of 'СУБЪЕКТ = PID1 (LFS ENGINE)'."
+        },
+        {
+          "type": "reference",
+          "uri": "file://verify_pid1/evidence/output.log",
+          "claim": "Verbatim audit log of the fresh verification run (unzip composition, secret scan, dangerous-pattern scan, isolated v3 run, CDN counts, duplicate probes)."
+        },
+        {
+          "type": "reference",
+          "uri": "file://verify_pid1/claims.json",
+          "claim": "lex-naturae collection of 8 audit claims, each backed by CSV-cell measurements and verbatim log excerpts."
+        }
+      ],
+      "version": "audit-2026-11-16",
+      "verified_by": [
+        "machine_audit",
+        "lex_naturae"
+      ],
+      "scaffold": false,
+      "replaceable_by": [
+        "re-audit after any change to the package files"
+      ],
+      "falsification_or_revision_condition": "Any secret pattern, network/exec pattern, non-zero isolated v3 exit code, or an account duplicate of the package content found later → node status reverts to UNKNOWN and the podgon is quarantined pending re-audit.",
+      "depends_on": {
+        "build": [],
+        "runtime": []
+      },
+      "status": "PASS",
+      "evidence": [
+        {
+          "check": "Fresh audit run verify_podgon.sh captured verbatim in evidence/output.log (sha256 25c3030f3bbbda4f…)",
+          "result": "0 secret-pattern matches; 0 network/exec pattern matches (imports stdlib-only); v3 isolated run exit 0 with final entropy 0.01; CDN refs only in dashboard v3 (2), none in v1/v2; no duplicates in checked account targets (polymath-core 404×2).",
+          "date": "2026-11-16",
+          "source_ref": "file://verify_pid1/evidence/output.log"
+        },
+        {
+          "check": "Content layer per HOUSE canon: lex_naturae.py on claims.json (8 claims: composition, no-secrets, no-netexec, v3-exit0, v3-entropy, cdn-v3-only, dialog-facts, no-duplicates)",
+          "result": "valid=true, 8/8 claims SUPPORTED, CHECKED_AGAINST_LOCAL_ARTIFACTS (csv_cell_value + text_excerpt); graph_warnings: shared evidence files (single audit log) — disclosed.",
+          "date": "2026-11-16",
+          "source_ref": "file://verify_pid1/claims.json"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "whole_is_not_component": "No node, model, institution, metric, or source may declare itself the whole.",
+    "claim_statuses": [
+      "PASS",
+      "FAIL",
+      "PARTIAL",
+      "UNKNOWN"
+    ],
+    "no_silent_promotion": "Unverified input must not become a verified fact merely by being repeated or incorporated.",
+    "tarball_intake": [
+      "record_origin",
+      "inspect_contents",
+      "verify_hash_if_available",
+      "run_checks",
+      "accept_or_quarantine"
+    ],
+    "chroot_rule": "Узел scaffold=false не может иметь runtime-зависимость от scaffold=true, кроме как из узла role=INTERFACE через запись в declared_interfaces (substitutable=true, с причиной).",
+    "pass_requires_evidence": "PASS только при непустом evidence {check,result,date,source_ref}; source_ref — один из uri самого узла и не 'conversation'; check/result не пустые по смыслу.",
+    "runtime_cycles": "Циклы в runtime-графе запрещены, если не объявлены в declared_runtime_cycles с причиной.",
+    "lock": "BUILD_GRAPH.lock.json хранит хэш каждого узла; потеря, новый или изменённый узел без --update-lock — ошибка."
+  },
+  "declared_interfaces": [
+    {
+      "from": "learning_interface",
+      "to": "teacher_sources",
+      "substitutable": true,
+      "reason": "Интерфейс обучения питается учителями в рантайме, но принимает любой источник с проверкой происхождения; конкретный учитель остаётся заменяемым."
+    }
+  ],
+  "declared_runtime_cycles": []
+}

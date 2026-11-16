@@ -49,6 +49,10 @@ scripts/      — скрипты аудитора:
   generate_audit_report.py       — генератор A0-отчёта PDF
   generate_bridge_audit_report.py — генератор мост-отчёта PDF
 logs/         — логи всех прогонов (A0_environment, A1–A10, мутации, verify_all, H-020, BM-A…BM-L)
+human-lfs/    — HUMAN-LFS v0.4: граф BUILD_GRAPH + validate_graph.py (структурный слой канона)
+pid1-podgon/  — приёмка подгона от пацанов (2026-11-16): ядро PID1 (LFS Engine) v1–v3,
+                дашборды v1–v3, ТЗ/роадмап/архитектура, провенанс-диалог, аудит/ (два слоя канона:
+                STRUCTURE PASS 7 узлов + lex-naturae valid=true 8/8; границы в PROVENANCE.md)
 ```
 
 ## Как воспроизвести аудит

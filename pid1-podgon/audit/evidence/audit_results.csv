@@ -1,0 +1,13 @@
+metric,value,unit
+files_total,10,count
+bytes_total,64313,bytes
+secret_pattern_matches,0,count
+dangerous_pattern_matches,0,count
+v3_exit_code,0,code
+v3_final_entropy,0.01,ratio
+cdn_refs_v3,2,count
+cdn_refs_v1,0,count
+cdn_refs_v2,0,count
+dialog_bytes,3628,bytes
+dialog_stages,6,count
+duplicate_hits,0,count

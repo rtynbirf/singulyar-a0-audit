@@ -1,0 +1,354 @@
+{
+  "claims": [
+    {
+      "claim_id": "PID1-PKG-COMPOSITION",
+      "statement": "Архив polymath_agent_final_package.zip содержит ровно 10 файлов общим распакованным объёмом 64313 байт (README, ТЗ, ROADMAP, ARCHITECTURE, 3 py-ядра, 3 дашборда).",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "число файлов из сводки unzip",
+          "method": "measurement",
+          "result": "files_total=10 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 10,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 2,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "суммарный объём из сводки unzip",
+          "method": "measurement",
+          "result": "bytes_total=64313 (bytes)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 64313,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 3,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "сводка unzip -l",
+          "method": "log_analysis",
+          "result": "10 files / 64313 bytes",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "64313                     10 files"
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-NO-SECRETS",
+      "statement": "В распакованных файлах пакета и диалога не найдено ни одного совпадения с паттернами секретов (ghp_, github_pat_, sk-, AKIA, xox*, PEM-ключ).",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "совпадения с паттернами секретов",
+          "method": "measurement",
+          "result": "secret_pattern_matches=0 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 4,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "скан секретов",
+          "method": "log_analysis",
+          "result": "не найдено",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "секретов нет (паттерны не найдены)"
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-NO-NETEXEC",
+      "statement": "Python-файлы пакета не содержат паттернов сети/исполнения/внешних путей; импорты ограничены stdlib (math, random, json, time, typing).",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "опасные паттерны",
+          "method": "measurement",
+          "result": "dangerous_pattern_matches=0 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 5,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "скан опасных паттернов",
+          "method": "log_analysis",
+          "result": "чисто",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "чисто: сеть/исполнение/внешние пути отсутствуют"
+        },
+        {
+          "description": "импорты",
+          "method": "log_analysis",
+          "result": "stdlib-only",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "      1 from typing import Dict, List, Any"
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-V3-EXIT0",
+      "statement": "Ядро polymath_agent_prototype-v3.py исполняется изолированно (python3 -I, без cd внутрь каталога архива) и завершается с кодом 0.",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "код возврата v3",
+          "method": "measurement",
+          "result": "v3_exit_code=0 (code)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 6,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "прогон v3 (заголовок секции + код возврата)",
+          "method": "log_analysis",
+          "result": "exit 0",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "=== S6. Живой прогон v3 (python3 -I, exit code фиксируется) ===\nv3_exit_code: 0"
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-V3-ENTROPY",
+      "statement": "В зафиксированном прогоне v3 (evidence/v3_run.json) энтропия состояния снизилась с начальной 0.95 (константа StateManagerLayer) до финальной 0.01; полный вывод прогона — в evidence.",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "финальная энтропия прогона",
+          "method": "measurement",
+          "result": "v3_final_entropy=0.01 (ratio)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "1",
+          "quantity": "ratio",
+          "measurement_value": 0.01,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 7,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "финальная энтропия (+ заголовок следующей секции)",
+          "method": "log_analysis",
+          "result": "0.01",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "v3_final_entropy: 0.01\n=== S7. Диалог ЧЕЛОВЕК: размер и число этапов ==="
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-CDN-V3-ONLY",
+      "statement": "Внешние CDN-ссылки (cdn.jsdelivr.net, cdn.tailwindcss.com) присутствуют только в polymath_agent_dashboard-v3.html; в дашбордах v1 и v2 их ноль.",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "CDN-ссылки в v3",
+          "method": "measurement",
+          "result": "cdn_refs_v3=2 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 2,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 8,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "CDN-ссылки в v1",
+          "method": "measurement",
+          "result": "cdn_refs_v1=0 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 9,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "CDN-ссылки в v2",
+          "method": "measurement",
+          "result": "cdn_refs_v2=0 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 10,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "подсчёт CDN по версиям (v3/v1/v2)",
+          "method": "log_analysis",
+          "result": "v3=2, v1=0, v2=0",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "cdn_v3_count: 2\ncdn_v1_count: 0\ncdn_v2_count: 0"
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-DIALOG-FACTS",
+      "statement": "Диалог происхождения (ЧЕЛОВЕК.zip → ДИАЛОГ_СЕССИИ_ЧЕЛОВЕК.md) занимает 3628 байт и фиксирует 6 этапов сессии «СУБЪЕКТ = PID1 (LFS ENGINE)».",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "размер диалога",
+          "method": "measurement",
+          "result": "dialog_bytes=3628 (bytes)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 3628,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 11,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "число этапов",
+          "method": "measurement",
+          "result": "dialog_stages=6 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "grep/unzip/python3/wc",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 6,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 12,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "размер и этапы диалога (заголовок + wc)",
+          "method": "log_analysis",
+          "result": "3628 байт",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "=== S7. Диалог ЧЕЛОВЕК: размер и число этапов ===\n3628 /tmp/unpack_chelovek/ДИАЛОГ_СЕССИИ_ЧЕЛОВЕК.md"
+        }
+      ]
+    },
+    {
+      "claim_id": "PID1-NO-DUPLICATES",
+      "statement": "В проверенных на дубль местах (polymath-core: два ключевых файла) содержимое пакета отсутствует — пересечения с первоисточником дома не найдены.",
+      "kind": "observation",
+      "scope": "аудит подгона PID1 2026-11-16",
+      "scope_id": "pid1-podgon-audit",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "дубли в проверенных целях",
+          "method": "measurement",
+          "result": "duplicate_hits=0 (count)",
+          "protocol": "Свежий прогон verify_podgon.sh 2026-11-16",
+          "instrument": "raw.githubusercontent HTTP-пробы",
+          "unit": "count",
+          "quantity": "count",
+          "measurement_value": 0,
+          "raw_data_ref": "evidence/audit_results.csv",
+          "raw_data_sha256": "b9d404f86ab6adeb99f65ccbf0c08b1e15a042bc49cc85c8169ec53c763f86df",
+          "csv_row": 13,
+          "csv_column": "value",
+          "tolerance": 0
+        },
+        {
+          "description": "проба polymath-core #1",
+          "method": "log_analysis",
+          "result": "404",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "polymath-core/polymath_agent_prototype-v3.py: HTTP 404"
+        },
+        {
+          "description": "проба polymath-core #2",
+          "method": "log_analysis",
+          "result": "404",
+          "protocol": "verify_podgon.sh: команды записаны в лог дословно",
+          "raw_data_ref": "evidence/output.log",
+          "raw_data_sha256": "25c3030f3bbbda4f9c6b3db740bf26ae809b1eadba0b63355652048dda86135b",
+          "excerpt": "polymath-core/TECHNICAL_SPECIFICATION.md: HTTP 404"
+        }
+      ]
+    }
+  ]
+}
