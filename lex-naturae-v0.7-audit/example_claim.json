@@ -1,0 +1,30 @@
+{
+  "claim_id": "OBS-WATER-A-001",
+  "statement": "The temperature recorded for water sample A was -2.0 degC.",
+  "kind": "observation",
+  "scope": "Water sample A, test run 1",
+  "scope_id": "water.sample-a.test-run-1",
+  "status": "UNKNOWN",
+  "evidence": [
+    {
+      "description": "Temperature value extracted from the supplied CSV record",
+      "method": "measurement",
+      "result": "CSV row 2, temperature_c column contains -2.0",
+      "protocol": "Read the recorded sample temperature from the exported instrument CSV",
+      "instrument": "Example thermometer T-4",
+      "unit": "degC",
+      "measurement_value": -2.0,
+      "raw_data_ref": "testdata/water.csv",
+      "raw_data_sha256": "8f40ca663b63d263218e955fc611614e73ca686af7327fbcd86c1de76add814b",
+      "csv_row": 2,
+      "csv_column": "temperature_c",
+      "tolerance": 0.0,
+      "quantity": "temperature"
+    }
+  ],
+  "testable_question": "",
+  "population": "",
+  "measure": "",
+  "decision_rule": "",
+  "links": []
+}

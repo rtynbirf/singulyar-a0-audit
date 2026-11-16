@@ -1,0 +1,2 @@
+2026-11-16T09:00:00 sample A placed in cooler at 5 degC
+2026-11-16T09:30:00 sample A surface frozen, probe reads -2.0 degC

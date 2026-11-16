@@ -1,0 +1,76 @@
+[
+  {
+    "claim_id": "OBS-WATER-A-001",
+    "statement": "The temperature recorded for water sample A was -2.0 degC.",
+    "kind": "observation",
+    "scope": "Water sample A, test run 1",
+    "scope_id": "water.sample-a.test-run-1",
+    "status": "SUPPORTED",
+    "evidence": [
+      {
+        "description": "Temperature value extracted from the supplied CSV record",
+        "method": "measurement",
+        "result": "CSV row 2, temperature_c column contains -2.0",
+        "protocol": "Read the recorded sample temperature from the exported instrument CSV",
+        "instrument": "Example thermometer T-4",
+        "unit": "degC",
+        "quantity": "temperature",
+        "measurement_value": -2.0,
+        "tolerance": 0.0,
+        "raw_data_ref": "testdata/water.csv",
+        "raw_data_sha256": "8f40ca663b63d263218e955fc611614e73ca686af7327fbcd86c1de76add814b",
+        "csv_row": 2,
+        "csv_column": "temperature_c"
+      }
+    ],
+    "links": [{"a": "OBS-WATER-A-001", "b": "OBS-WATER-A-002", "relation": "contradicts"}]
+  },
+  {
+    "claim_id": "OBS-WATER-A-002",
+    "statement": "The temperature recorded for water sample A was -1.5 degC.",
+    "kind": "observation",
+    "scope": "water sample A, test run 1",
+    "scope_id": "water.sample-a.test-run-1",
+    "status": "SUPPORTED",
+    "evidence": [
+      {
+        "description": "Second row of the same CSV record",
+        "method": "measurement",
+        "result": "CSV row 3, temperature_c column contains -1.5",
+        "protocol": "Read the recorded sample temperature from the exported instrument CSV",
+        "instrument": "Example thermometer T-4",
+        "unit": "degC",
+        "quantity": "temperature",
+        "measurement_value": -1.5,
+        "tolerance": 0.0,
+        "raw_data_ref": "testdata/water.csv",
+        "raw_data_sha256": "8f40ca663b63d263218e955fc611614e73ca686af7327fbcd86c1de76add814b",
+        "csv_row": 3,
+        "csv_column": "temperature_c"
+      }
+    ]
+  },
+  {
+    "claim_id": "RULE-EXAMPLE-001",
+    "statement": "The example document states that it is an artifact for integrity verification.",
+    "kind": "institutional_rule",
+    "scope": "Example document, edition 1",
+    "status": "SUPPORTED",
+    "evidence": [
+      {
+        "description": "Opening sentence of the stored document",
+        "method": "document_citation",
+        "result": "The quoted sentence appears in the stored file",
+        "source": "https://example.invalid/document",
+        "document_title": "Example document",
+        "issuer": "Example issuer",
+        "locator": "line 1",
+        "version": "edition 1",
+        "retrieved_at": "2026-11-16",
+        "raw_data_ref": "testdata/document.txt",
+        "content_sha256": "70e9dc6427716a572cce48d722c640f7ef7a0a3de52ea5a5ee6365b93c40a170",
+        "excerpt": "Example document artifact for local integrity verification"
+      }
+    ]
+  }
+]

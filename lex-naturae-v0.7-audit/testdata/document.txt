@@ -1,0 +1,1 @@
+Example document artifact for local integrity verification.
