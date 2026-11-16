@@ -1,0 +1,83 @@
+{
+  "claims": [
+    {
+      "claim_id": "ACCOUNT-SWEEP-SUMMARY",
+      "statement": "Account rtynbirf has 9 of 31 active repos meeting all convention checks (README+LICENSE+desc+tests+green CI+0 issues)",
+      "kind": "observation",
+      "scope": "account sweep 2026-11-16",
+      "scope_id": "sweep-2026-11-16",
+      "status": "SUPPORTED",
+      "evidence": [
+        {
+          "description": "Total repos passing all checks: 9 out of 31",
+          "method": "measurement",
+          "result": "9 of 31 PASS",
+          "protocol": "automated sweep: GitHub API check per repo for README/LICENSE/desc/tests/CI/issues",
+          "instrument": "sweep script (urllib + GitHub API)",
+          "unit": "count",
+          "measurement_value": 9,
+          "raw_data_ref": "repo_health.csv",
+          "raw_data_sha256": "e0d10dcba3d7d52b3b00433914bf61ce370e5527240d91ef60bc3734858a0275",
+          "quantity": "count",
+          "csv_row": 33,
+          "csv_column": "all_checks_pass",
+          "tolerance": 0
+        },
+        {
+          "description": "CI failure log",
+          "method": "log_analysis",
+          "result": "22 repos with gaps; 1 CI failures",
+          "protocol": "stdout from sweep",
+          "raw_data_ref": "ci_failures.txt",
+          "raw_data_sha256": "c6e2cf79ac86ee93c4feb2d5cbd779e4f0eb54d7c3ecbfcb10128a6fb2cb486d",
+          "excerpt": "[SWEEP] 31 repos checked; 9 PASS; 22 FAIL"
+        }
+      ]
+    },
+    {
+      "claim_id": "GAP-RTYNBIRF",
+      "statement": "Repo rtynbirf has gaps: no_tests",
+      "kind": "observation",
+      "scope": "account sweep 2026-11-16",
+      "scope_id": "sweep-2026-11-16",
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "claim_id": "GAP--GITHUB",
+      "statement": "Repo .github has gaps: no_tests",
+      "kind": "observation",
+      "scope": "account sweep 2026-11-16",
+      "scope_id": "sweep-2026-11-16",
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "claim_id": "GAP-SINGULYAR-A0-AUDIT",
+      "statement": "Repo singulyar-a0-audit has gaps: no_tests, issues=1",
+      "kind": "observation",
+      "scope": "account sweep 2026-11-16",
+      "scope_id": "sweep-2026-11-16",
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "claim_id": "GAP-RUVSON-LYRICS",
+      "statement": "Repo ruvson-lyrics has gaps: no_tests",
+      "kind": "observation",
+      "scope": "account sweep 2026-11-16",
+      "scope_id": "sweep-2026-11-16",
+      "status": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "claim_id": "GAP-SINGULYAR",
+      "statement": "Repo singulyar has gaps: no_tests",
+      "kind": "observation",
+      "scope": "account sweep 2026-11-16",
+      "scope_id": "sweep-2026-11-16",
+      "status": "UNKNOWN",
+      "evidence": []
+    }
+  ]
+}
