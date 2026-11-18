@@ -1,14 +1,14 @@
 # SINGULYAR × A0 — Independent Audit Bundle
 
 <div align="center">
-  <img src="banner.png" width="100%" alt="Штандарт singulyar-a0-audit: обсидиан и расплавленное золото, кузня rtynbirf" />
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/banner.png" width="100%" alt="Штандарт singulyar-a0-audit: обсидиан и расплавленное золото, кузня rtynbirf" />
 </div>
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
-  <img src="repo-muse.svg" width="100%" alt="Муза singulyar-a0-audit: мастерская ТЁРНЕР · ВИХРЬ, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/repo-muse.svg" width="100%" alt="Муза singulyar-a0-audit: мастерская ТЁРНЕР · ВИХРЬ, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
   <br/>
-  <img src="forge-divider.svg" width="62%" alt="делитель мастерской ТЁРНЕР · ВИХРЬ" />
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/forge-divider.svg" width="62%" alt="делитель мастерской ТЁРНЕР · ВИХРЬ" />
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
 
