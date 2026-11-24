@@ -47,7 +47,7 @@ jobs:
             echo "## СТРАЖ ВЕРДИКТОВ A0 · $(date -u +%FT%TZ)"
             echo "- py_compile 10 скриптов аудитора и r4_implementation — см. лог"
             echo "- JCS selftest 7/7 (RFC 8785 §3.2.3) — см. лог"
-            echo "- sha256sum -c SHA256SUMS.txt: 41 вердикт-носитель (reports/, logs/, r4_implementation/, scripts/, R4_X019_DESIGN.md) байт-в-байт — см. лог"
+            echo "- sha256sum -c SHA256SUMS.txt: $(wc -l < SHA256SUMS.txt) вердикт-носителей по уставу (reports/, logs/, r4_implementation/, scripts/, R4_X019_DESIGN.md) байт-в-байт — см. лог"
             echo "- вердикты: reports/A0_STANDARD_v0.2.5_AUDIT_REPORT.pdf (PACKAGE VALID) · reports/A0_BRIDGE_AUDIT_REPORT.pdf (BRIDGE VALID)"
             echo "- тишина = айс; красный = дрейф вердикт-носителя или смерть инструментов"
           } >> "$GITHUB_STEP_SUMMARY"
