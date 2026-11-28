@@ -1,14 +1,14 @@
-# SINGULYAR × A0 — Independent Audit Bundle
-
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/banner.png" width="100%" alt="Штандарт singulyar-a0-audit: обсидиан и расплавленное золото, кузня rtynbirf" />
+
+<a href="https://github.com/rtynbirf/singulyar-a0-audit"><img src="banner.png" width="100%" alt="singulyar-a0-audit — штандарт мастерской в каноне ORNAMENTAL MYTHO-REALISM"></a>
+
 </div>
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/repo-muse.svg" width="100%" alt="Муза singulyar-a0-audit: мастерская ТЁРНЕР · ВИХРЬ, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/repo-muse.svg" width="100%" alt="Муза singulyar-a0-audit: мастерская КУЗНЯ ПОЛИМАТ, кузня ПОЛИМАТ, раунд 12 · REVE=РЕВО" />
   <br/>
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/forge-divider.svg" width="62%" alt="делитель мастерской ТЁРНЕР · ВИХРЬ" />
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/forge-divider.svg" width="62%" alt="делитель мастерской КУЗНЯ ПОЛИМАТ" />
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
 
@@ -19,8 +19,20 @@
 
 | ФАЙЛОВ | ПАПОК | КОММИТОВ | ОБНОВЛЕНО | РЕЛИЗОВ |
 |---:|---:|---:|---|---:|
-| 144 | 23 | 92 | 2026-11-26 | 0 |
+| 145 | 23 | 1 | 2026-11-28 | 1 |
 <!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
+
+# SINGULYAR × A0 — Independent Audit Bundle
+
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/.github/social-preview.png" alt="singulyar-a0-audit" width="100%"></p>
+
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/banner.png" width="100%" alt="Штандарт singulyar-a0-audit: обсидиан и расплавленное золото, кузня rtynbirf" />
+</div>
+
+
+
+
 
 
 Независимый аудит **A0_STANDARD v0.2.5** и моста **a0_bridge.py** синтеза
@@ -115,3 +127,5 @@ PACKAGE VALID (A0_STANDARD v0.2.5) и BRIDGE VALID (`a0_bridge.py` + опыт H-
 ## Лицензия / авторство
 
 Аудиторские скрипты и отчёты — Z.ai, 2026. Проверяемый код (A0_STANDARD v0.2.5, SINGULYAR HOST v4.1, конституция редакции 2) — не изменён аудитором; лицензия оригинальных авторов.
+
+<!--ФОРЖ:ПОДВАЛ-->
