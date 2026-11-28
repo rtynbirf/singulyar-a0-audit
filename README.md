@@ -22,6 +22,18 @@
 | 145 | 23 | 1 | 2026-11-28 | 1 |
 <!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
 
+# singulyar-a0-audit
+
+<div align="center">
+
+<a href="https://github.com/rtynbirf/singulyar-a0-audit"><img src="banner.png" width="100%" alt="singulyar-a0-audit — штандарт мастерской в каноне ORNAMENTAL MYTHO-REALISM"></a>
+
+</div>
+
+
+
+
+
 # SINGULYAR × A0 — Independent Audit Bundle
 
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/singulyar-a0-audit@main/.github/social-preview.png" alt="singulyar-a0-audit" width="100%"></p>
